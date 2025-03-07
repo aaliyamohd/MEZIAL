@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEZIAL - Luxury Professional Lifestyle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+       /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    background: url('/bg.png');
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e44d26; /* Use a standout color */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e44d26;
+}
+
+/* Section Styles */
+section {
+    padding: 50px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #f8e7e7;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #efd1d1;
+}
+
+/* Product Grid Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 3rem 0;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 20px;
+}
+
+.product-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-details p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.color-variations {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.color-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.color-dot:hover {
+    border-color: #e44d26; /* Highlight color on hover */
+}
+
+.size-selection {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.size-option {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.size-option:hover {
+    background-color: #e44d26;
+    color: #fff;
+    border-color: #e44d26;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e44d26;
+}
+
+.btn-cherry {
+    background-color: #e44d26;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cherry:hover {
+    background-color: #c6391a;
+}
+/* Footer Styles */
+footer {
+    background-color: #373636;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    border-top: 2px solid #e44d26;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #e44d26;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+}
+
+
+/* Beauty & Skincare Styles */
+.beauty-note {
+    font-style: italic;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Concierge Styles (Simple Example) */
+.concierge-info {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: #e44d26;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #c6391a;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">MEZIAL</div>
+            <nav>
+                <ul>
+                    <li><a href="#professional-wear">Professional Wear</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                    <li><a href="#jewelry">Jewelry</a></li>
+                    <li><a href="#beauty">Beauty</a></li>
+                    <li><a href="#skincare">Skincare</a></li>
+                    <li><a href="#concierge">Concierge</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Professional Wear Section -->
+    <section id="professional-wear" class="container">
+        <div class="section-header">
+            <h2>Professional Wear Collection</h2>
+            <p>Elevate your professional image with meticulously designed ensembles that blend sophistication, comfort, and unparalleled style.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="crimson red.avif" alt="Crimson Silk Executive Suit">
+                <div class="product-details">
+                    <h3>Crimson Silk Executive Suit</h3>
+                    <p>Hand-tailored from rare cherry-red silk, a statement of unparalleled professional elegance.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #8B0000;"></div>
+                        <div class="color-dot" style="background-color: #B22222;"></div>
+                        <div class="color-dot" style="background-color: #DC143C;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">36</div>
+                        <div class="size-option">38</div>
+                        <div class="size-option">40</div>
+                        <div class="size-option">42</div>
+                        <div class="size-option">44</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$49,999</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="ruby.jpg" alt="Ruby Power Dress">
+                <div class="product-details">
+                    <h3>Ruby Power Dress</h3>
+                    <p>Woven with precision and passion, a dress that radiates confidence in deep ruby tones.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #9B111E;"></div>
+                        <div class="color-dot" style="background-color: #AA0000;"></div>
+                        <div class="color-dot" style="background-color: #800000;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">XS</div>
+                        <div class="size-option">S</div>
+                        <div class="size-option">M</div>
+                        <div class="size-option">L</div>
+                        <div class="size-option">XL</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$79,500</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Scarlet Blazer Ensemble.jpg" alt="Scarlet Blazer Ensemble">
+                <div class="product-details">
+                    <h3>Scarlet Blazer Ensemble</h3>
+                    <p>Precision-cut blazer with matching tailored trousers in a bold scarlet palette.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #FF2400;"></div>
+                        <div class="color-dot" style="background-color: #CC0000;"></div>
+                        <div class="color-dot" style="background-color: #B22222;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">36</div>
+                        <div class="size-option">38</div>
+                        <div class="size-option">40</div>
+                        <div class="size-option">42</div>
+                        <div class="size-option">44</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$65,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Cardinal Red Tuxedo.webp" alt="Cardinal Red Tuxedo">
+                <div class="product-details">
+                    <h3>Cardinal Red Tuxedo</h3>
+                    <p>Exceptional evening wear with silk lapels and a bold cardinal red finish.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #6C0E23;"></div>
+                        <div class="color-dot" style="background-color: #8B0000;"></div>
+                        <div class="color-dot" style="background-color: #DC143C;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">38</div>
+                        <div class="size-option">40</div>
+                        <div class="size-option">42</div>
+                        <div class="size-option">44</div>
+                        <div class="size-option">46</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$89,500</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Vermilion Power Jumpsuit.avif" alt="Vermilion Power Jumpsuit">
+                <div class="product-details">
+                    <h3>Vermilion Power Jumpsuit</h3>
+                    <p>Sleek, architectural jumpsuit in a striking vermilion hue, designed for the modern executive.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #E34234;"></div>
+                        <div class="color-dot" style="background-color: #FF4500;"></div>
+                        <div class="color-dot" style="background-color: #FF6347;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">XS</div>
+                        <div class="size-option">S</div>
+                        <div class="size-option">M</div>
+                        <div class="size-option">L</div>
+                        <div class="size-option">XL</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$72,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section id="accessories" class="container">
+        <div class="section-header">
+            <h2>Scarlet Elegance Accessories</h2>
+            <p>A curated collection of accessories that blend cutting-edge design with the passionate intensity of cherry red.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Cardinal Red Titanium Sunglasses.webp" alt="Cardinal Red Titanium Sunglasses">
+                <div class="product-details">
+                    <h3>Cardinal Red Titanium Sunglasses</h3>
+                    <p>Hand-crafted titanium frames with rare cardinal-red polarized lenses, limited to 50 pieces worldwide.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #6C0E23;"></div>
+                        <div class="color-dot" style="background-color: #8B0000;"></div>
+                        <div class="color-dot" style="background-color: #DC143C;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">Narrow</div>
+                        <div class="size-option">Medium</div>
+                        <div class="size-option">Wide</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$22,500</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Vermilion Carbon Fiber Briefcase.webp" alt="Vermilion Carbon Fiber Briefcase">
+                <div class="product-details">
+                    <h3>Vermilion Carbon Fiber Briefcase</h3>
+                    <p>Aerospace-grade carbon fiber in a striking vermilion finish with integrated biometric security.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #E34234;"></div>
+                        <div class="color-dot" style="background-color: #FF4500;"></div>
+                        <div class="color-dot" style="background-color: #FF6347;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">13"</div>
+                        <div class="size-option">15"</div>
+                        <div class="size-option">17"</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$35,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Ruby Red Leather Gloves.jpg" alt="Ruby Red Leather Gloves">
+                <div class="product-details">
+                    <h3>Ruby Red Leather Gloves</h3>
+                    <p>Hand-stitched lambskin gloves in a deep ruby red, lined with the finest silk.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #9B111E;"></div>
+                        <div class="color-dot" style="background-color: #AA0000;"></div>
+                        <div class="color-dot" style="background-color: #800000;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">XS</div>
+                        <div class="size-option">S</div>
+                        <div class="size-option">M</div>
+                        <div class="size-option">L</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$8,500</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Scarlet Leather Portfolio.jpg" alt="Scarlet Leather Portfolio">
+                <div class="product-details">
+                    <h3>Scarlet Leather Portfolio</h3>
+                    <p>Handcrafted full-grain leather portfolio in a rich scarlet finish with platinum hardware.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #FF2400;"></div>
+                        <div class="color-dot" style="background-color: #CC0000;"></div>
+                        <div class="color-dot" style="background-color: #B22222;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">A4</div>
+                        <div class="size-option">Letter</div>
+                        <div class="size-option">Legal</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$12,500</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Cardinal Red Travel Wallet.webp" alt="Cardinal Red Travel Wallet">
+                <div class="product-details">
+                    <h3>Cardinal Red Travel Wallet</h3>
+                    <p>Exotic leather travel wallet with RFID protection and multiple passport compartments.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #6C0E23;"></div>
+                        <div class="color-dot" style="background-color: #8B0000;"></div>
+                        <div class="color-dot" style="background-color: #DC143C;"></div>
+                    </div>
+                    <div class="size-selection">
+                        <div class="size-option">Compact</div>
+                        <div class="size-option">Standard</div>
+                        <div class="size-option">Extended</div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$15,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jewelry Section -->
+    <section id="jewelry" class="container">
+        <div class="section-header">
+            <h2>Passion's Jewel Collection</h2>
+            <p>Transcendent jewelry pieces that capture the depth, intensity, and rare beauty of the most exquisite red gemstones.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Crimson Constellation Necklace.webp" alt="Crimson Constellation Necklace">
+                <div class="product-details">
+                    <h3>Crimson Constellation Necklace</h3>
+                    <p>Rare red diamonds set in platinum, designed to mirror the intensity of a passionate moment.</p>
+                    <div class="material">Material: Platinum, Red Diamonds</div>
+                    <div class="dimensions">Dimensions: 18 inches long</div>
+                    <div class="product-actions">
+                        <span class="price">$2,500,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Ruby Heart Earrings.jpg" alt="Ruby Heart Earrings">
+                <div class="product-details">
+                    <h3>Ruby Heart Earrings</h3>
+                    <p>Heirloom-quality ruby earrings set in 24K gold, symbolizing unwavering love and commitment.</p>
+                    <div class="material">Material: 24K Gold, Rubies</div>
+                    <div class="dimensions">Dimensions: 1.5 inches long</div>
+                    <div class="product-actions">
+                        <span class="price">$1,750,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Scarlet Fire Ring.jpg" alt="Scarlet Fire Ring">
+                <div class="product-details">
+                    <h3>Scarlet Fire Ring</h3>
+                    <p>Unique scarlett spinel ring set in white gold, a symbol of inner strength and individuality.</p>
+                    <div class="material">Material: White Gold, Scarlett Spinel</div>
+                    <div class="size">Size: 7</div>
+                    <div class="product-actions">
+                        <span class="price">$950,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+             <div class="product-card">
+                <img src="Vermillion Velvet Choker.webp" alt="Vermillion Velvet Choker">
+                <div class="product-details">
+                    <h3>Vermillion Velvet Choker</h3>
+                    <p>A captivating accessory crafted from the finest vermillion velvet and adorned with sparkling Swarovski crystals.</p>
+                    <div class="material">Material: Velvet, Swarovski Crystals</div>
+                    <div class="size">Size: Adjustable</div>
+                    <div class="product-actions">
+                        <span class="price">$450,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Cranberry Cascade Bracelet.jpeg" alt="Cranberry Cascade Bracelet">
+                <div class="product-details">
+                    <h3>Cranberry Cascade Bracelet</h3>
+                    <p>This exquisite piece features a cascade of dazzling cranberry-colored gems meticulously set in a sterling silver chain.</p>
+                    <div class="material">Material: Sterling Silver, Cranberry Gems</div>
+                    <div class="dimensions">Dimensions: Length 7.5 inches</div>
+                    <div class="product-actions">
+                        <span class="price">$650,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beauty Section -->
+    <section id="beauty" class="container">
+        <div class="section-header">
+            <h2>Rouge Allure Beauty Line</h2>
+            <p>Immerse yourself in the allure of MEZIAL's red beauty line, designed to amplify your charisma and confidence with a bold palette.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Ruby Red Lipstick.webp" alt="Ruby Red Lipstick">
+                <div class="product-details">
+                    <h3>Ruby Red Lipstick</h3>
+                    <p>A luscious red lipstick that offers a long-lasting, hydrating finish with intense pigment. <span class="beauty-note">Perfect for making a statement.</span></p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #AA0000;"></div>
+                        <div class="color-dot" style="background-color: #B22222;"></div>
+                        <div class="color-dot" style="background-color: #800000;"></div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$150,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+             <div class="product-card">
+                <img src="Blood Orange Blush.png" alt="Blood Orange Blush">
+                <div class="product-details">
+                    <h3>Blood Orange Blush</h3>
+                    <p>Enhance your natural glow with a rich, blood orange hue blush that blends effortlessly for a radiant finish.</p>
+                    <div class="color-variations">
+                        <div class="color-dot" style="background-color: #CC0000;"></div>
+                        <div class="color-dot" style="background-color: #FF0000;"></div>
+                        <div class="color-dot" style="background-color: #8B0000;"></div>
+                    </div>
+                    <div class="product-actions">
+                        <span class="price">$250,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Scarlet Nail Lacquer.webp" alt="Scarlet Nail Lacquer">
+                <div class="product-details">
+                    <h3>Scarlet Nail Lacquer</h3>
+                    <p>A high-shine nail lacquer in a classic scarlet that delivers a chip-resistant, glossy finish.  <span class="beauty-note">A timeless color for every occasion.</span></p>
+                    <div class="product-actions">
+                        <span class="price">$80,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+               <div class="product-card">
+                <img src="Crimson Velvet Eyeshadow Palette.jpg" alt="Crimson Velvet Eyeshadow Palette">
+                <div class="product-details">
+                    <h3>Crimson Velvet Eyeshadow Palette</h3>
+                    <p>An eyeshadow palette featuring six sumptuous shades of crimson for unparalleled eye allure, suitable for day and night. <span class="beauty-note">Versatile for all skin tones.</span></p>
+                    <div class="product-actions">
+                        <span class="price">$380,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+             <div class="product-card">
+                <img src="Cranberry Scented Perfume.webp" alt="Cranberry Scented Perfume">
+                <div class="product-details">
+                    <h3>Cranberry Scented Perfume</h3>
+                    <p>This exquisitely scented perfume balances sweet top notes of cranberry with a spicy base of sandalwood, creating a luxurious and long-lasting aroma.</p>
+                    <div class="product-actions">
+                        <span class="price">$280,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skincare Section -->
+    <section id="skincare" class="container">
+        <div class="section-header">
+            <h2>Revitalize Elixir Skincare Range</h2>
+            <p>Indulge in MEZIAL's skincare range designed to revitalize and rejuvenate your skin with rare ingredients and advanced formulations.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Scarlet Pomegranate Serum.webp" alt="Scarlet Pomegranate Serum">
+                <div class="product-details">
+                    <h3>Scarlet Pomegranate Serum</h3>
+                    <p>A potent serum infused with red pomegranate extract to brighten, firm, and protect against environmental stressors. <span class="beauty-note">Ideal for daily use.</span></p>
+                    <div class="product-actions">
+                        <span class="price">$300,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+               <div class="product-card">
+                <img src="Ruby Rose Hydrating Mask.jpg" alt="Ruby Rose Hydrating Mask">
+                <div class="product-details">
+                    <h3>Ruby Rose Hydrating Mask</h3>
+                    <p>This hydrating mask features a blend of ruby extract and rose oil to deeply moisturize and soothe the skin, leaving it smooth and radiant.</p>
+                    <div class="product-actions">
+                        <span class="price">$220,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Crimson Clay Exfoliator.jpeg" alt="Crimson Clay Exfoliator">
+                <div class="product-details">
+                    <h3>Crimson Clay Exfoliator</h3>
+                    <p>Gently buffs away dead skin cells to reveal a smoother, brighter complexion with crimson clay, rich in minerals. <span class="beauty-note">Use 2-3 times a week.</span></p>
+                    <div class="product-actions">
+                        <span class="price">$180,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+                 <div class="product-card">
+                <img src="Blushing Berry Cleansing Foam.webp" alt="Blushing Berry Cleansing Foam">
+                <div class="product-details">
+                    <h3>Blushing Berry Cleansing Foam</h3>
+                    <p>The Blushing Berry Cleansing Foam gently removes impurities and makeup, leaving skin radiant and refreshed, infused with antioxidant-rich berry extracts.</p>
+                    <div class="product-actions">
+                        <span class="price">$230,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Cardinal Red Illuminating Cream.webp" alt="Cardinal Red Illuminating Cream">
+                <div class="product-details">
+                    <h3>Cardinal Red Illuminating Cream</h3>
+                    <p>Enhanced with fine light-reflecting particles, the Cardinal Red Illuminating Cream brightens your complexion.</p>
+                    <div class="product-actions">
+                        <span class="price">$400,000</span>
+                        <button class="btn-cherry">Acquire</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Concierge Section -->
+    <section id="concierge" class="container">
+        <div class="section-header">
+            <h2>Exclusive Concierge Services</h2>
+            <p>MEZIAL offers personalized concierge services designed to meet your unique lifestyle demands with unparalleled elegance.</p>
+        </div>
+
+        <div class="concierge-info">
+            <p>Our dedicated team is available to assist with personal shopping, travel arrangements, and exclusive event access. Please contact us to tailor a service that aligns with your desires.</p>
+        </div>
+
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Describe Your Request"></textarea>
+            <button>Submit Request</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 MEZIAL. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
